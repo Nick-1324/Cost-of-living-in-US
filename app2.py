@@ -9,7 +9,14 @@ from sklearn.multioutput import MultiOutputRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 
 # --- CONFIGURATION & API SETUP ---
-GROQ_API_KEY = "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"
+import os
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+if not GROQ_API_KEY:
+    raise ValueError("GROQ_API_KEY not found in environment variables")
+
+client = Groq(api_key=GROQ_API_KEY)
 DATA_PATH = "feature_engineered_us_cities.csv"
 
 # --- DATA & MODEL ENGINE ---
