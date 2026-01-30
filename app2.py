@@ -120,7 +120,7 @@ if prompt:
         f"User: {prompt}"
     )
 
-    client = Groq(api_key=GROQ_API_KEY)
+    
     full_response = ""
 
     completion = client.chat.completions.create(
